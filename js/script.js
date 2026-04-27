@@ -111,7 +111,7 @@ function levelUp() {
     const popup = document.getElementById("level-up");
 
     // sound
-    const audio = new Audio("https://www.myinstants.com/media/sounds/magic.mp3");
+    const audio = new Audio("https://www.myinstants.com/media/sounds/arise-solo-leveling.mp3");
     audio.play();
 
     popup.classList.add("show");
