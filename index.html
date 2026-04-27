@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mworks Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="modal">
+        <div id="modal-box">
+            <h2 id="modal-title"></h2>
+            <p>System project data loading...</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
+    </div>
+    <div id="level-up">LEVEL UP!</div>
+
+    <!-- 🔥 Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader-content">
+            <h1 class="glow">MWORKS SYSTEM</h1>
+            <p class="line">> Initializing System...</p>
+            <p class="line">> Loading Portfolio...</p>
+            <p class="line">> Status: <span class="glow">ONLINE</span></p>
+
+            <div class="loading-bar">
+                <div class="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🧿 Cursor Glow -->
+    <div class="cursor-glow"></div>
+
+    <header>
+        <section class="profile-card">
+
+            <!-- 🎮 Profile Image -->
+            <div class="avatar-frame">
+                <img src="images/profile.jpg" class="profile-pic" alt="Profile" onclick="rankUp()">
+
+                <!-- 🧿 Animated glow ring -->
+                <div class="glow-ring"></div>
+            </div>
+
+            <!-- 📄 Info -->
+            <div class="profile-info">
+
+                <div class="name-row">
+                    <h2 class="glow">Mworks Developer</h2>
+
+                    <!-- 🧬 Rank Badge -->
+                    <span class="rank">RANK E</span>
+                </div>
+
+                <p>Electronics Engineer • Embedded Systems • IoT Builder</p>
+
+                <!-- 📊 RPG Stats -->
+                <div class="stats">
+                    <div class="stat"><span>STR</span><div class="bar"><div style="width:60%"></div></div></div>
+                    <div class="stat"><span>INT</span><div class="bar"><div style="width:85%"></div></div></div>
+                    <div class="stat"><span>AGI</span><div class="bar"><div style="width:70%"></div></div></div>
+                </div>
+
+            </div>
+            <div class="exp-system">
+                <div class="level-box">
+                    LEVEL <span id="level">1</span>
+                </div>
+
+                <div class="exp-bar">
+                    <div id="exp-fill"></div>
+                </div>
+
+                <button onclick="gainExp(20)" class="exp-btn">+ EXP</button>
+            </div>
+        </section>
+
+
+        <!-- 🧠 ABOUT -->
+        <section id="about" class="section">
+            <h2 class="glow">ABOUT MWORKS</h2>
+            <p>
+                I am an Electronics Engineer focused on embedded systems, IoT development,
+                and circuit design. I build real-world systems using microcontrollers and
+                modern development tools.
+            </p>
+        </section>
+
+        <!-- ⚙️ SKILLS -->
+        <section id="skills" class="section">
+            <h2 class="glow">SKILLS</h2>
+
+            <div class="skills-grid">
+                <div class="skill">Circuit Design</div>
+                <div class="skill">Arduino / ESP32</div>
+                <div class="skill">PCB Layout</div>
+                <div class="skill">IoT Systems</div>
+                <div class="skill">C / C++ Programming</div>
+                <div class="skill">Hardware Debugging</div>
+            </div>
+        </section>
+
+        <!-- 🧪 PROJECTS -->
+        <section class="dungeon">
+            <h2 class="glow">DUNGEON SELECT</h2>
+
+            <div class="dungeon-grid">
+
+                <div class="dungeon-card" onclick="openDungeon('Smart Home System')">
+                    🏰 Smart Home Dungeon
+                </div>
+
+                <div class="dungeon-card" onclick="openDungeon('IoT Monitor')">
+                    ⚙️ IoT Dungeon
+                </div>
+
+                <div class="dungeon-card" onclick="openDungeon('Robot System')">
+                    🤖 Robot Dungeon
+                </div>
+
+            </div>
+        </section><section class="dungeon">
+            <h2 class="glow">DUNGEON SELECT</h2>
+
+            <div class="dungeon-grid">
+
+                <div class="dungeon-card" onclick="openDungeon('Smart Home System')">
+                    🏰 Smart Home Dungeon
+                </div>
+
+                <div class="dungeon-card" onclick="openDungeon('IoT Monitor')">
+                    ⚙️ IoT Dungeon
+                </div>
+
+                <div class="dungeon-card" onclick="openDungeon('Robot System')">
+                    🤖 Robot Dungeon
+                </div>
+
+            </div>
+        </section><section class="dungeon">
+            <h2 class="glow">DUNGEON SELECT</h2>
+
+            <div class="dungeon-grid">
+
+                <div class="dungeon-card" onclick="openDungeon('Smart Home System')">
+                    🏰 Smart Home Dungeon
+                </div>
+
+                <div class="dungeon-card" onclick="openDungeon('IoT Monitor')">
+                    ⚙️ IoT Dungeon
+                </div>
+
+                <div class="dungeon-card" onclick="openDungeon('Robot System')">
+                    🤖 Robot Dungeon
+                </div>
+
+            </div>
+        </section><section class="dungeon">
+            <h2 class="glow">DUNGEON SELECT</h2>
+
+            <div class="dungeon-grid">
+
+                <div class="dungeon-card" onclick="openDungeon('Smart Home System')">
+                    🏰 Smart Home Dungeon
+                </div>
+
+                <div class="dungeon-card" onclick="openDungeon('IoT Monitor')">
+                    ⚙️ IoT Dungeon
+                </div>
+
+                <div class="dungeon-card" onclick="openDungeon('Robot System')">
+                    🤖 Robot Dungeon
+                </div>
+
+            </div>
+        </section><section class="dungeon">
+            <h2 class="glow">DUNGEON SELECT</h2>
+
+            <div class="dungeon-grid">
+
+                <div class="dungeon-card" onclick="openDungeon('Smart Home System')">
+                    🏰 Smart Home Dungeon
+                </div>
+
+                <div class="dungeon-card" onclick="openDungeon('IoT Monitor')">
+                    ⚙️ IoT Dungeon
+                </div>
+
+                <div class="dungeon-card" onclick="openDungeon('Robot System')">
+                    🤖 Robot Dungeon
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 📡 CONTACT -->
+        <section id="contact" class="section">
+            <h2 class="glow">CONTACT SYSTEM</h2>
+
+            <div class="contact-box">
+                <p>📧 Email: yourname@email.com</p>
+                <p>📱 Phone: +63 XXX XXX XXXX</p>
+                <p>💻 GitHub: github.com/yourprofile</p>
+            </div>
+        </section>
+    </header>
+
+    <!-- 🎥 Banner -->
+    <section class="banner">
+        <canvas id="particles"></canvas>
+
+        <div class="banner-content">
+            <h1 class="glow">ARISE</h1>
+            <p>Electronics Engineer • System Builder</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>Projects</h2>
+        <div class="project">Smart Home System</div>
+        <div class="project">IoT Temperature Monitor</div>
+        <div class="project">Line Following Robot</div>
+    </section>
+
+    <footer>
+        <p>© 2026 MWorks</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
