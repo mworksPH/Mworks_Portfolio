@@ -1,0 +1,504 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: black;
+    color: #e2e8f0;
+    overflow-x: hidden;
+}
+
+/* Loading Screen */
+#loading-screen {
+    position: fixed;
+    inset: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader-content {
+    text-align: center;
+    color: #38bdf8;
+    font-family: monospace;
+}
+
+.line {
+    opacity: 0;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 5px;
+    background: #1e293b;
+    margin-top: 15px;
+}
+
+.progress {
+    height: 100%;
+    width: 0;
+    background: #38bdf8;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    height: 100vh;
+    background: url("images/cover.jpg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    /* dark overlay for readability */
+    .banner::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.7);
+    }
+
+/* Particles */
+#particles {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+/* Content */
+.banner-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.glow {
+    color: #38bdf8;
+    text-shadow: 0 0 10px #38bdf8;
+}
+
+/* Projects */
+section {
+    padding: 40px;
+}
+
+.project {
+    background: #111;
+    padding: 15px;
+    margin: 10px 0;
+}
+
+/* Cursor Glow */
+.cursor-glow {
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(56,189,248,0.4), transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+}
+
+/* Profile Section */
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px;
+    background: rgba(0,0,0,0.6);
+    border-bottom: 1px solid rgba(56,189,248,0.2);
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #38bdf8;
+    box-shadow: 0 0 15px #38bdf8;
+}
+
+/* Text */
+.profile-info h2 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.profile-info p {
+    color: #94a3b8;
+    margin-top: 5px;
+}
+
+/* CARD */
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    padding: 40px;
+    background: rgba(0,0,0,0.6);
+    border-bottom: 1px solid rgba(56,189,248,0.2);
+    animation: popIn 1.2s ease;
+}
+
+/* ENTRY ANIMATION */
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* AVATAR */
+.avatar-frame {
+    position: relative;
+}
+
+/* PROFILE PIC */
+.profile-pic {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #38bdf8;
+    z-index: 2;
+    position: relative;
+}
+
+/* 🧿 GLOW RING ANIMATION */
+.glow-ring {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 2px solid #38bdf8;
+    box-shadow: 0 0 20px #38bdf8;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+}
+
+/* NAME ROW */
+.name-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* 🧬 RANK BADGE */
+.rank {
+    background: #38bdf8;
+    color: #000;
+    padding: 5px 10px;
+    font-size: 0.8em;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #38bdf8;
+}
+
+/* STATS */
+.stats {
+    margin-top: 10px;
+}
+
+.stat {
+    margin: 8px 0;
+}
+
+    .stat span {
+        font-size: 0.8em;
+        color: #94a3b8;
+    }
+
+/* STAT BAR */
+.bar {
+    width: 200px;
+    height: 6px;
+    background: #1e293b;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+    .bar div {
+        height: 100%;
+        background: #38bdf8;
+        box-shadow: 0 0 10px #38bdf8;
+    }
+
+#level-up {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 3em;
+    font-weight: bold;
+    color: #38bdf8;
+    text-shadow: 0 0 15px #38bdf8, 0 0 30px #6366f1;
+    z-index: 9999;
+    opacity: 0;
+}
+
+    #level-up.show {
+        animation: levelAnim 2s ease forwards;
+    }
+
+@keyframes levelAnim {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+
+    30% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 1;
+    }
+
+    70% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0;
+    }
+}
+
+/* shadow clones */
+.profile-card::before,
+.profile-card::after {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(56,189,248,0.2);
+    filter: blur(20px);
+    z-index: -1;
+    animation: floatShadow 3s infinite alternate;
+}
+
+.profile-card::before {
+    top: 20px;
+    left: 20px;
+}
+
+.profile-card::after {
+    bottom: 20px;
+    right: 20px;
+}
+
+@keyframes floatShadow {
+    from {
+        transform: translateY(0px) scale(1);
+    }
+
+    to {
+        transform: translateY(-10px) scale(1.2);
+    }
+}
+
+// play after loading screen
+setTimeout(systemVoice, 3000);
+
+.rank - btn {
+    margin - top: 10px;
+    padding: 8px 12px;
+    background: transparent;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.rank - btn:hover {
+    background: #38bdf8;
+    color: black;
+}
+
+.rank.upgraded {
+    background: #38bdf8;
+    color: black;
+    box - shadow: 0 0 15px gold;
+}
+
+/* GENERAL SECTIONS */
+.section {
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+    /* HEADINGS */
+    .section h2 {
+        margin-bottom: 20px;
+        border-left: 4px solid #38bdf8;
+        padding-left: 10px;
+    }
+
+    /* ABOUT */
+    .section p {
+        color: #94a3b8;
+        line-height: 1.6;
+    }
+
+/* SKILLS GRID */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+}
+
+.skill {
+    background: rgba(17, 24, 39, 0.8);
+    border: 1px solid rgba(56,189,248,0.2);
+    padding: 12px;
+    text-align: center;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+    .skill:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px #38bdf8;
+    }
+
+/* PROJECT CARDS */
+.project-card {
+    background: rgba(17, 24, 39, 0.8);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 10px;
+    border: 1px solid rgba(56,189,248,0.2);
+    transition: 0.3s;
+}
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px #38bdf8;
+    }
+
+/* CONTACT BOX */
+.contact-box {
+    background: rgba(17, 24, 39, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid rgba(56,189,248,0.2);
+}
+
+
+.exp-system {
+    padding: 20px;
+    text-align: center;
+}
+
+.level-box {
+    font-size: 1.2em;
+    color: #38bdf8;
+    margin-bottom: 10px;
+}
+
+.exp-bar {
+    width: 300px;
+    height: 10px;
+    background: #1e293b;
+    margin: auto;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#exp-fill {
+    height: 100%;
+    width: 0%;
+    background: #38bdf8;
+    box-shadow: 0 0 10px #38bdf8;
+    transition: 0.3s;
+}
+
+.exp-btn {
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: transparent;
+    border: 1px solid #38bdf8;
+    color: #38bdf8;
+    cursor: pointer;
+}
+
+.dungeon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.dungeon-card {
+    padding: 20px;
+    background: rgba(17,24,39,0.8);
+    border: 1px solid #38bdf8;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+    .dungeon-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #38bdf8;
+    }
+
+.shadow {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #38bdf8;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: floatShadow 6s linear infinite;
+}
+
+@keyframes floatShadow {
+    from {
+        transform: translateY(100vh);
+    }
+
+    to {
+        transform: translateY(-10vh);
+    }
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+#modal-box {
+    background: #0f172a;
+    padding: 20px;
+    border: 1px solid #38bdf8;
+    width: 300px;
+}
