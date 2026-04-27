@@ -25,36 +25,54 @@ let interval = setInterval(() => {
 
 // Particles
 const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+if (canvas) {
+    const ctx = canvas.getContext("2d");
 
-let particles = [];
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
 
-for (let i = 0; i < 60; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: 2,
-        speed: Math.random() * 1
-    });
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    let particles = [];
+
+    function initParticles() {
+        particles = [];
+        for (let i = 0; i < 80; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                size: 2,
+                speed: Math.random() * 1.5
+            });
+        }
+    }
+
+    initParticles();
+
+    function animate() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        particles.forEach(p => {
+            p.y -= p.speed;
+
+            if (p.y < 0) {
+                p.y = canvas.height;
+                p.x = Math.random() * canvas.width;
+            }
+
+            ctx.fillStyle = "#38bdf8";
+            ctx.fillRect(p.x, p.y, p.size, p.size);
+        });
+
+        requestAnimationFrame(animate);
+    }
+
+    animate();
 }
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    particles.forEach(p => {
-        p.y -= p.speed;
-        if (p.y < 0) p.y = canvas.height;
-
-        ctx.fillStyle = "#38bdf8";
-        ctx.fillRect(p.x, p.y, p.size, p.size);
-    });
-
-    requestAnimationFrame(animate);
-}
-animate();
 
 // Cursor glow
 const cursor = document.querySelector(".cursor-glow");
@@ -168,10 +186,53 @@ function closeModal() {
 window.addEventListener("load", () => {
     setTimeout(() => {
         const voice = new SpeechSynthesisUtterance(
-            "System initializing complete. Welcome, hunter."
+            "System initializing complete. Welcome, to M-works, system."
         );
         voice.rate = 0.9;
         voice.pitch = 0.6;
         speechSynthesis.speak(voice);
     }, 2500);
 });
+
+    let currentIndex = 0;
+
+function goTo(index) {
+    currentIndex = index;
+    document.getElementById("slider").style.transform =
+        `translateX(-${index * 100}%)`;
+}
+
+/* 🧠 Swipe support (mobile) */
+let startX = 0;
+
+document.getElementById("slider").addEventListener("touchstart", e => {
+    startX = e.touches[0].clientX;
+});
+
+document.getElementById("slider").addEventListener("touchend", e => {
+    let endX = e.changedTouches[0].clientX;
+
+    if (startX - endX > 50) goTo(Math.min(currentIndex + 1, 3));
+    if (endX - startX > 50) goTo(Math.max(currentIndex - 1, 0));
+});
+
+    
+// play after loading screen
+setTimeout(systemVoice, 3000);
+
+        function revealOnScroll() {
+    const reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+
+        const visiblePoint = 100;
+
+        if (elementTop < windowHeight - visiblePoint) {
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
