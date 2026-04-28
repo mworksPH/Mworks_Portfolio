@@ -25,7 +25,7 @@ body {
 
 .line {
     opacity: 0;
-}b
+}
 
 .loading-bar {
     width: 200px;
@@ -605,4 +605,135 @@ section {
     background: #00ffcc;
     box-shadow: 0 0 10px #00ffcc;
     transition: width 0.3s ease;
+}
+
+/* ================= MOBILE OPTIMIZATION ================= */
+
+@media (max-width: 768px) {
+
+    /* GENERAL */
+    body {
+        font-size: 14px;
+    }
+
+    section {
+        padding: 20px;
+    }
+
+    /* PROFILE CARD STACK */
+    .profile-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+    }
+
+    .avatar-frame {
+        margin-bottom: 15px;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .glow-ring {
+        width: 120px;
+        height: 120px;
+        top: -10px;
+        left: -10px;
+    }
+
+    .name-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    /* STATS FIX */
+    .bar {
+        width: 100%;
+    }
+
+    /* EXP SYSTEM */
+    .exp-bar {
+        width: 100%;
+    }
+
+    /* PROJECT VIDEOS (VERY IMPORTANT) */
+    iframe {
+        width: 100% !important;
+        height: 1280px !important;
+    }
+
+    /* PROJECT CARDS */
+    .project,
+    .project-card {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    /* BANNER */
+    .banner {
+        height: 60vh;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .banner h1 {
+        font-size: 26px;
+    }
+
+    /* MODAL */
+    #modal-box {
+        width: 90%;
+    }
+
+    /* CONTACT */
+    .contact-box {
+        font-size: 14px;
+    }
+
+    .contact-box svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* LOADER */
+    .loader-content h1 {
+        font-size: 20px;
+    }
+
+    /* DISABLE CURSOR GLOW ON MOBILE */
+    .cursor-glow {
+        display: none;
+    }
+
+    /* TOUCH FRIENDLY */
+    button, a {
+        min-height: 44px;
+    }
+}
+
+
+/* EXTRA SMALL PHONES */
+@media (max-width: 480px) {
+
+    h2 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 13px;
+    }
+
+    .level-box {
+        font-size: 12px;
+    }
+
+    .banner {
+        height: 50vh;
+    }
+
+    iframe {
+        height: 200px !important;
+    }
 }
