@@ -107,19 +107,6 @@ window.addEventListener("load", () => {
     }
 });
 
-function levelUp() {
-    const popup = document.getElementById("level-up");
-
-    // sound
-    const audio = new Audio("https://www.myinstants.com/media/sounds/arise-solo-leveling.mp3X");
-    audio.play();
-
-    popup.classList.add("show");
-
-    setTimeout(() => {
-        popup.classList.remove("show");
-    }, 2000);
-}
 
 // trigger after load
 setTimeout(levelUp, 5000);
@@ -142,6 +129,7 @@ function rankUp() {
         rank.textContent = "RANK S";
         rank.classList.add("upgraded");
         img.src = "images/hover_profile.jpg";
+        levelUp();
         // effect + sound levelUp();
         systemVoice();
     }
@@ -196,6 +184,20 @@ window.addEventListener("load", () => {
         speechSynthesis.speak(voice);
     }, 2500);
 });
+
+function levelUp() {
+    const popup = document.getElementById("level-up");
+
+    // sound
+    const audio = new Audio("https://www.myinstants.com/media/sounds/arise-solo-leveling.mp3");
+    audio.play();
+
+    popup.classList.add("show");
+
+    setTimeout(() => {
+        popup.classList.remove("show");
+    }, 2000);
+}
 
     let currentIndex = 0;
 
