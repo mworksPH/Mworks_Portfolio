@@ -111,7 +111,7 @@ function levelUp() {
     const popup = document.getElementById("level-up");
 
     // sound
-    const audio = new Audio("https://www.myinstants.com/media/sounds/arise-solo-leveling.mp3");
+    const audio = new Audio("https://www.myinstants.com/media/sounds/arise-solo-leveling.mp3X");
     audio.play();
 
     popup.classList.add("show");
@@ -135,10 +135,13 @@ function systemVoice() {
 
 function rankUp() {
     const rank = document.querySelector(".rank");
+    const img = document.getElementById("profileImg");
+
 
     if (rank.textContent === "RANK E") {
         rank.textContent = "RANK S";
         rank.classList.add("upgraded");
+        img.src = "images/hover_profile.jpg";
         // effect + sound levelUp();
         systemVoice();
     }
