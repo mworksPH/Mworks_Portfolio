@@ -673,7 +673,7 @@ section {
 
     /* PROJECT VIDEOS (VERY IMPORTANT) */
     iframe {
-        width: 100% !important;
+        width: 470px !important;
         height: 1280px !important;
     }
 
@@ -747,6 +747,6 @@ section {
     }
 
     iframe {
-        height: 1280px !important;
+        height: 720px !important;
     }
 }
