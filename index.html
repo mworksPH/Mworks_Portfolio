@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <link rel="icon" type="image/png" sizes="16x16" href="images/logo.jpg">
@@ -7,197 +6,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mworks Portfolio</title>
     <link rel="stylesheet" href="css/style.css">
-
-    
-    <!-- ================= HEADER ================= -->
-    <header>
-        <div id="level-up">LEVEL UP!</div>
-
-        <!-- 👤 PROFILE CARD -->
-        <section class="profile-card">
-
-            <div class="avatar-frame">
-                <img src="images/profile.jpg" id="profileImg" class="profile-pic" alt="Profile" onclick="rankUp()">
-                <div class="glow-ring"></div>
-            </div>
-
-            <div class="profile-info">
-                <div class="name-row">
-                    <h2 class="glow">Mworks Developer</h2>
-                    <span class="rank">RANK E</span>
-                </div>
-
-                <p>Electronics Engineer • Embedded Systems • IoT Builder</p>
-
-                <div class="stats">
-                    <div class="stat"><span>STR</span><div class="bar"><div style="width:60%"></div></div></div>
-                    <div class="stat"><span>INT</span><div class="bar"><div style="width:85%"></div></div></div>
-                    <div class="stat"><span>AGI</span><div class="bar"><div style="width:70%"></div></div></div>
-                </div>
-            </div>
-
-            <div class="exp-system">
-                <div class="level-box">LEVEL <span id="level">1</span></div>
-                <div class="exp-bar"><div id="exp-fill"></div></div>
-                <button onclick="gainExp(20)" class="exp-btn">+ EXP</button>
-            </div>
-
-        </section>
-    </header>
-
 </head>
 
 <body>
-    <canvas id="particles"></canvas>
 
-    <!-- 🔥 LOADING -->
-    <div id="loading-screen">
-        <div class="loader-content">
-            <h1 class="glow">MWORKS SYSTEM</h1>
-            <p>> Initializing System...</p>
-            <p>> Loading Portfolio...</p>
-            <p>> Status: <span class="glow">ONLINE</span></p>
+<!-- 🔥 LOADING -->
+<div id="loading-screen">
+    <div class="loader-content">
+        <h1 class="glow">MWORKS SYSTEM</h1>
+        <p>> Initializing System...</p>
+        <p>> Loading Portfolio...</p>
+        <p>> Status: <span class="glow">ONLINE</span></p>
 
-            <div class="loading-bar">
-                <div class="progress"></div>
+         <div class="loading-bar">
+    <div class="progress" id="progress"></div>  
+</div>
+
+<p id="loadText">0%</p>
+    </div>
+</div>
+
+<canvas id="particles"></canvas>
+
+<!-- ================= HEADER ================= -->
+<header class="header">
+
+
+    <!-- PROFILE CARD -->
+    <section class="profile-card">
+       
+        <div class="avatar-frame">
+    <img src="images/profile.jpg" id="profileImg" class="profile-pic" alt="Profile" onclick="rankUp()">
+
+    <div class="glow-ring"></div>
+    <div class="smoke"></div>
+</div>
+</div>
+        </div>
+
+        <div class="profile-info">
+            <div class="name-row">
+                <h2 class="glow">Mworks Developer</h2>
+                <span class="rank">RANK E</span>
+            </div>
+
+            <p>Electronics Engineer • Embedded Systems • IoT Builder</p>
+
+            <div class="stats">
+                <div class="stat"><span>STR</span><div class="bar"><div style="width:60%"></div></div></div>
+                <div class="stat"><span>INT</span><div class="bar"><div style="width:85%"></div></div></div>
+                <div class="stat"><span>AGI</span><div class="bar"><div style="width:70%"></div></div></div>
             </div>
         </div>
+
+    </section>
+</header>
+
+<!-- ================= DASHBOARD ================= -->
+<div class="dashboard">
+
+    <!-- LEFT PANEL -->
+    <aside class="left-panel">
+        <div class="menu">
+            <button onclick="openTab('profile')">Profile</button>
+            <button onclick="openTab('skills')">Skills</button>
+            <button onclick="openTab('projects')">Projects</button>
+            <button onclick="openTab('achievements')">Achievements</button>
+            <button onclick="openTab('contacts')">Contacts</button>
+        </div>
+    </aside>
+
+    <!-- CENTER SCREEN -->
+    <main class="center">
+        <div id="screen"></div>
+    </main>
+
+</div>
+
+<!-- 🎥 BANNER -->
+<section class="banner" id="banner">
+    <div class="banner-content">
+        <h1 class="glow">ARISE</h1>
+        <p>Electronics Engineer • System Builder</p>
     </div>
+</section>
 
-    <!-- 🧿 CURSOR -->
-    <div class="cursor-glow"></div>
+<footer>
+    <p>© 2026 MWorks</p>
+</footer>
 
-    <!-- 📦 MODAL -->
-    <div id="modal">
-        <div id="modal-box">
-            <h2 id="modal-title"></h2>
-            <p>System project data loading...</p>
-            <button onclick="closeModal()">Close</button>
-        </div>
-    </div>
-
-
-    <!-- 🧪 PROFILE DETAILS -->
-    <section>
-        <h2 class="glow">Profile</h2>
-        <p class="level-box">
-            I am an Electronics Engineer specializing in embedded systems, IoT development,
-            and circuit design. I design and build intelligent systems using microcontrollers
-            such as Arduino and ESP32, integrating hardware and software to solve real-world problems.
-            <br>
-            <br>
-            My work focuses on developing efficient, reliable, and scalable electronic solutions,<br>
-            from sensor-based monitoring systems to automation and robotics.
-        </p>
-    </section>
-
-    <!-- 🧪 IT SKILLS -->
-    <section>
-        <h2 class="glow">💻 IT Skills</h2>
-        <div class="project">Programming (Python, C++)</div>
-       
-        <div class="project">Web Development (HTML, CSS, JavaScript frameworks)</div>
-       
-        <div class="project">Networking (TCP/IP, routing, switching)</div>
-
-        <div class="project">Operating Systems (Linux, Windows Server)</div>
-      
-    </section>
-
-        <!-- 🧪 ELECTRONICS SKILLS -->
-    <section>
-        <h2 class="glow">🔌 Electronics Skills</h2>
-        <div class="project">Circuit Design & Analysis</div>
-       
-        <div class="project">Microcontroller Programming (Arduino, ESP32)</div>
-       
-        <div class="project">Troubleshooting & Repair</div>
-
-        <div class="project">Reading Schematics & Datasheets</div>
-      
-    </section>
-
-       <!-- 🧪 CERTIFICATES -->
-    <section>
-        <h2 class="glow">📜 Certificates</h2>
-        <div class="project">NCII</div>
-        <img src="images/ElectronicsNCII.jpg" width="420" height="420" />
-        <img src="images/MechatronicsNCII.jpg" width="420" height="420"/>
-       
-    </section>
-
-
-    <!-- 🧪 PROJECTS -->
-    <section>
-        <h2 class="glow">Projects</h2>
-        <div class="project">Smart Carwash Vendo</div>
-        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F3002494513294591%2F&show_text=false&width=267&t=0" width="480" height="720" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-
-
-        <div class="project">Blinking LED</div>
-        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1624359471941712%2F&show_text=false&width=267&t=0" width="480" height="720" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-
-        <div class="project">Wifi Controlled Relay</div>
-        <iframe src="https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Freel%2F1889646231565460%2F&show_text=false&width=267&t=0" width="480" height="720" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen="true"></iframe>
-    </section>
-
-
-    <!-- ================= CONTACT ================= -->
-    <section>
-       
-
-        <div class="contact-box">
-            <h2 class="glow">CONTACT SYSTEM</h2>
-            <!-- FB CONTACT -->
-            <span class="glow">
-                Facebook :
-                <a href="https://www.facebook.com/MworkssPH" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                        <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-                    </svg>
-
-                </a>
-            </span>
-            <!-- TIKTOK CONTACT -->
-            &nbsp;&nbsp;&nbsp;<span class="glow">
-                Tiktok :
-                <a href="https://tiktok.com/@mworksph" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-tiktok" viewBox="0 0 16 16">
-                        <path d="M9 0h1.98c.144.715.54 1.617 1.235 2.512C12.895 3.389 13.797 4 15 4v2c-1.753 0-3.07-.814-4-1.829V11a5 5 0 1 1-5-5v2a3 3 0 1 0 3 3V0Z" />
-                    </svg>
-                </a>
-            </span>
-
-            <!-- GITHUB CONTACT -->
-            &nbsp;&nbsp;&nbsp;<span class="glow">
-                Github :
-                <a href="https://github.com/mworksPH" target="_blank">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8" />
-                    </svg>
-                </a>
-            </span>
-        </div>
-    </section>
-
-    <!-- 🎥 BANNER -->
-    <section class="banner">
-
-        <div class="banner-content">
-            <h1 class="glow">ARISE</h1>
-            <p>Electronics Engineer • System Builder</p>
-        </div>
-    </section>
-
-
-
-    <footer>
-        <p>© 2026 MWorks</p>
-    </footer>
-
-    <script src="js/script.js"></script>
+<script src="js/script.js"></script>
+<!-- 💬 FLOATING MESSENGER BUTTON -->
+<a href="https://m.me/MworkssPH" target="_blank" class="messenger-float">
+    💬
+</a>
 </body>
 </html>
